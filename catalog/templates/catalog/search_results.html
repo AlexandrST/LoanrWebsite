@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<p>You searched for: <strong>{{ query }}</strong></p>
+
+{% if items %}
+<p>Found {{ items|length }} item{{ itemss|pluralize }}:</p>
+<ul>
+    {% for item in items %}
+    <li>
+      <a href="{{ item.get_absolute_url }}">{{ item.title }}</a> ({{item.rentor.first_name}} {{item.rentor.last_name}})
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No items matched your search criteria.</p>
+{% endif %}
+
+{% endblock %}

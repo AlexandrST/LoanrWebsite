@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Rentor List</h1>
+
+{% if rentor_list %}
+  <ul>
+
+  {% for rentor in rentor_list %}
+    <li>
+      <a href="{{ rentor.get_absolute_url }}">
+      {{ rentor }} - Member since {{rentor.date_joined}}
+      </a>
+    </li>
+  {% endfor %}
+
+ </ul>
+{% else %}
+  <p>There are no rentors available.</p>
+{% endif %}
+
+
+
+{% endblock %}

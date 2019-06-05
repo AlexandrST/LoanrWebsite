@@ -1,0 +1,22 @@
+{% extends 'base_generic.html' %}
+
+  {% block content %}
+    <title>Profile</title>
+
+    <br>
+    <div class="container">
+      <b>My Information:</b>
+    </div>
+    <div class="container">
+
+      <p>
+        Username: {{ user }} <br>
+        First Name: {{ user.first_name }} <br>
+        Last Name: {{ user.last_name }} <br>
+        Email: {{ user.email }} <br>
+      </p>
+      <form action="/catalog/profile/edit">
+          <input type="submit" value="Edit Profile" />
+      </form>
+    </div>
+  {% endblock %}

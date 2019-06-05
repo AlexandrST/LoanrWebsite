@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>My Wallet</h1>
+
+    <li><a href="{% url 'card_create' %}">Add a new Credit Card</a></li>
+
+    {% if creditcard_list %}
+    <ul>
+      {% for card in creditcard_list %}
+      {% if card.created_by == request.user %}
+      <p>
+        <a href="{{ card.get_absolute_url }}">
+        Card Number: {{ card.cc_number }} </a><br>
+        Card CCV: {{ card.cc_code }} <br>
+        Card Expiry {{ card.cc_expiry}}
+      </p>
+      {% endif %}
+      {% endfor %}
+
+
+    </ul>
+
+    {% else %}
+      <p>There are no items in the library.</p>
+    {% endif %}
+{% endblock %}

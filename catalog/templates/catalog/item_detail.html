@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Title: {{ item.title }}</h1>
+
+<p><strong>Rentor:</strong> <a href="{% url 'rentor-detail' item.rentor.pk %}">{{ item.rentor.first_name }} {{ item.rentor.last_name }}</a></p>
+<p><strong>Summary:</strong> {{ item.summary }}</p>
+<p><strong>Item Type:</strong> {% for item_type in item.item_type.all %}{{item_type}}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+<p><strong>Date Posted:</strong> {{ item.date_posted }}</p>
+<p><strong>Rent Price</strong> ${{ item.price }}/day</p>
+
+{% if request.user == item.rentor %}
+<button type="button">
+    <a href="{% url 'item_delete' item.pk %}">Delete</a>
+</button>
+<button type="button">
+    <a href="{% url 'change_status' item.pk %}">Toggle Rented</a>
+</button>
+{% endif %}
+
+
+{% endblock %}

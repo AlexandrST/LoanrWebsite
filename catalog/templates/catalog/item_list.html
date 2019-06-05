@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Item List</h1>
+
+    {% if item_list %}
+    <ul>
+
+      {% for item in item_list %}
+      {% if item.active == True %}
+      <li>
+        <a href="{{ item.get_absolute_url }}">{{ item.title }}</a> ({{item.rentor.first_name}} {{item.rentor.last_name}})
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no items in the library.</p>
+    {% endif %}
+{% endblock %}

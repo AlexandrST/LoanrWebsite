@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+<h1>LoanR Home</h1>
+
+<p>
+  Welcome to <em>Loanr</em>, your One-Stop Shop for finding that item you need
+</p>
+<p>
+  Take a look any all of the offerings in your local area now!
+</p>
+<div>
+
+{% load static %}
+<img src="{% static "images/loanrlogo.png" %}" alt="My image" style="width:300px;height:150px;"/>
+</div>
+
+<h2>Site Information</h2>
+
+<p>Some Current Site Statistics:</p>
+<ul>
+<li><strong>Rental Items:</strong> {{ num_items }}</li>
+<li><strong>Rentors:</strong> {{ num_rentors }}</li>
+</ul>
+
+<br>
+<br>
+
+<h2>
+  What are you looking for?
+</h2>
+<form type="get" action="{% url 'search' %}">
+    <input type="search" id="q" name="q" placeholder="Search for item..."/>
+</form>
+
+<br>
+<br>
+
+You have visited this page {{ num_visits }} times.
+
+{% endblock %}

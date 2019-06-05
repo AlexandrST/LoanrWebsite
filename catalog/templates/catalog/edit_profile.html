@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+  {% block content %}
+    <br>
+    <div class="container">
+      <p>
+        Edit Profile
+      </p>
+    </div>
+    <div class="container">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Submit</button>
+        </form>
+
+    </div>
+    {% endblock %}
