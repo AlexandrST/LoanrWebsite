@@ -13,7 +13,7 @@ Django-credit-cards
 
 
 Steps to get website running (open a cmd window -> cd into root folder):
-pip install -r requirements.txt
+pip install -r requirements.txt \n
 python manage.py makemigrations
 python manage.py migrate
 python manage.py collectstatic
