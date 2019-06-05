@@ -1,5 +1,5 @@
 # LoanrWebsite
-Simple Django website that allows rentors to post items for rentees to rent, and for rentees to browse rental items
+Simple Django website that allows rentors to post items for rentees to rent (and update item rental status), and for rentees to browse rental item
 
 Required dependencies (pip install):
 - dj-database-url
